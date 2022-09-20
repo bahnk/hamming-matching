@@ -1,0 +1,7 @@
+#!/bin/sh
+
+./bin/hamming \
+	test/data/seq_barcodes.txt \
+	test/data/puck_barcodes.txt \
+	test/result.csv
+
