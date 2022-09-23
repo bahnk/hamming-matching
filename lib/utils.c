@@ -1,10 +1,26 @@
 /*
- * nourdine.bah@crick.ac.uk
+ * nourdinebah@gmail.com
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "error_codes.h"
+
+///////////////////////////
+int file_exists(char *path)
+{
+
+	if (FILE *file = fopen(path, "r"))
+	{
+		fclose(file);
+		return 1;
+	}
+
+	else
+	{
+		return 0;
+	}   
+}
 
 /////////////////////
 size_t get_file_size(

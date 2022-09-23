@@ -1,5 +1,5 @@
 /*
- * nourdine.bah@crick.ac.uk
+ * nourdinebah@gmail.com
  */
 
 #define FUNCTION_FAILURE 0
