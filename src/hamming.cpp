@@ -2,10 +2,11 @@
  * nourdinebah@gmail.com
  */
 
+#include <CL/cl.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-#include <CL/cl.h>
+#include <string.h>
 
 #include <iostream>
 #include <fstream>
@@ -131,11 +132,39 @@ int main(int argc, char **argv)
 	///////////////////////////////////////////////////////////////////////////
 	// PROGRAMS
 	
+	//////////////////////////
+	// hamming distance kernel
+
+	char *cl_hamming_path = (char*)malloc(50);
+
+	if ( file_exists("/usr/cl/hamming.cl") )
+	{
+		strcpy(cl_hamming_path, "/usr/cl/hamming.cl");
+	}
+	else
+	{
+		strcpy(cl_hamming_path, "cl/hamming.cl");
+	}
+	
 	cl_kernel* hamming_krn =
-		new_kernel(context, devices, "cl/hamming.cl", "hamming");
+		new_kernel(context, devices, cl_hamming_path, "hamming");
+
+	//////////////////////
+	// min distance kernel
+
+	char *cl_min_path = (char*)malloc(50);
+	
+	if ( file_exists("/usr/cl/min_dist.cl") )
+	{
+		strcpy(cl_min_path, "/usr/cl/min_dist.cl");
+	}
+	else
+	{
+		strcpy(cl_min_path, "cl/min_dist.cl");
+	}
 
 	cl_kernel* min_krn =
-		new_kernel(context, devices, "cl/min_dist.cl", "min_dist");
+		new_kernel(context, devices, cl_min_path, "min_dist");
 
 	///////////////////////////////////////////////////////////////////////////
 	// SOME BUFFERS FOR HAMMING KERNEL
