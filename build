@@ -26,6 +26,9 @@ cp -v bin/* ${DEB_DIR}/usr/bin
 create_dir ${DEB_DIR}/usr/include
 cp -v include/* ${DEB_DIR}/usr/include
 
+create_dir ${DEB_DIR}/usr/cl
+cp -v cl/* ${DEB_DIR}/usr/cl
+
 create_dir ${DEB_DIR}/DEBIAN
 
 echo "Package: ${PKG_NAME}" > ${DEB_DIR}/DEBIAN/control
